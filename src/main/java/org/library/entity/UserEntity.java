@@ -1,4 +1,4 @@
-package org.library.dto;
+package org.library.entity;
 
 import org.springframework.data.annotation.Id;
 
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class UserDto {
+public class UserEntity {
   @javax.persistence.Id
   @Column(name = "user_id", nullable = false)
   private int userId;
