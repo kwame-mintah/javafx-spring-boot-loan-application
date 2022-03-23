@@ -3,8 +3,8 @@ package org.library.dto;
 import java.util.Date;
 
 public class DvdDto extends AbstractItemDto {
-  private final String actors;
-  private final String studio;
+  private String actors;
+  private String studio;
 
   protected DvdDto(
       final String name,
@@ -25,7 +25,15 @@ public class DvdDto extends AbstractItemDto {
     return actors;
   }
 
+  public void setActors(final String actors) {
+    this.actors = actors;
+  }
+
   public String getStudio() {
     return studio;
+  }
+
+  public void setStudio(final String studio) {
+    this.studio = studio;
   }
 }

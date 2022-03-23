@@ -3,8 +3,8 @@ package org.library.dto;
 import java.util.Date;
 
 public class VideoGameDto extends AbstractItemDto {
-  private final boolean digitalCopy;
-  private final String ageRating;
+  private boolean digitalCopy;
+  private String ageRating;
 
   protected VideoGameDto(
       final String name,
@@ -25,7 +25,15 @@ public class VideoGameDto extends AbstractItemDto {
     return digitalCopy;
   }
 
+  public void setDigitalCopy(final boolean digitalCopy) {
+    this.digitalCopy = digitalCopy;
+  }
+
   public String getAgeRating() {
     return ageRating;
+  }
+
+  public void setAgeRating(final String ageRating) {
+    this.ageRating = ageRating;
   }
 }
