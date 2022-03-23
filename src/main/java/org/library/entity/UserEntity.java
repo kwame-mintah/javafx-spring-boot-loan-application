@@ -1,7 +1,23 @@
 package org.library.dto;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class UserDto {
+  @javax.persistence.Id
+  @Column(name = "user_id", nullable = false)
   private int userId;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   private String username;
   private String firstname;
   private String lastname;
@@ -14,6 +30,14 @@ public class UserDto {
 
   public void setUserId(final int userId) {
     this.userId = userId;
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(final Integer id) {
+    this.id = id;
   }
 
   public String getUsername() {
