@@ -1,27 +1,30 @@
 package org.library.entity;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
+
 
 @Entity
-@Table(name = "users")
-public class UserEntity {
-  @javax.persistence.Id
-  @Column(name = "user_id", nullable = false)
-  private int userId;
-
+@Table(name = "account", schema = "public")
+public class UserEntity implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  @Column(name = "userId", nullable = false )
+  private int userId;
+  @Column(name = "username", nullable = false)
   private String username;
+  @Column(name = "firstname", nullable = false)
   private String firstname;
+  @Column(name = "lastname", nullable = false)
   private String lastname;
+  @Column(name = "email", nullable = false)
   private String email;
+  @Column(name = "enabled")
   private Boolean enabled;
 
   public int getUserId() {
@@ -30,14 +33,6 @@ public class UserEntity {
 
   public void setUserId(final int userId) {
     this.userId = userId;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(final Integer id) {
-    this.id = id;
   }
 
   public String getUsername() {
@@ -78,5 +73,14 @@ public class UserEntity {
 
   public void setEnabled(final Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  @Override
+  public String toString() {
+    return "UserId=" + userId +
+            " username=" + username +
+            " firstname=" + firstname +
+            "lastname=" + lastname +
+            "email=" + email;
   }
 }
