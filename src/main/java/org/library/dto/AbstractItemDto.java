@@ -8,13 +8,13 @@ import java.util.Date;
  * data access objects to retrieve data from a database.
  */
 abstract class AbstractItemDto {
-  private final String name;
-  private final String description;
-  private final String publisher;
-  private final Integer availableCount;
-  private final Integer onLoan;
-  private final String genre;
-  private final Date releaseDate;
+  private String name;
+  private String description;
+  private String publisher;
+  private Integer availableCount;
+  private Integer onLoan;
+  private String genre;
+  private Date releaseDate;
 
   protected AbstractItemDto(
       final String name,
@@ -37,27 +37,55 @@ abstract class AbstractItemDto {
     return name;
   }
 
+  public void setName(final String name) {
+    this.name = name;
+  }
+
   public String getDescription() {
     return description;
+  }
+
+  public void setDescription(final String description) {
+    this.description = description;
   }
 
   public String getPublisher() {
     return publisher;
   }
 
+  public void setPublisher(final String publisher) {
+    this.publisher = publisher;
+  }
+
   public Integer getAvailableCount() {
     return availableCount;
+  }
+
+  public void setAvailableCount(final Integer availableCount) {
+    this.availableCount = availableCount;
   }
 
   public Integer getOnLoan() {
     return onLoan;
   }
 
+  public void setOnLoan(final Integer onLoan) {
+    this.onLoan = onLoan;
+  }
+
   public String getGenre() {
     return genre;
   }
 
+  public void setGenre(final String genre) {
+    this.genre = genre;
+  }
+
   public Date getReleaseDate() {
     return releaseDate;
+  }
+
+  public void setReleaseDate(final Date releaseDate) {
+    this.releaseDate = releaseDate;
   }
 }
