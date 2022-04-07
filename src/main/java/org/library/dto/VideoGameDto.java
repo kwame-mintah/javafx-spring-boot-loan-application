@@ -9,14 +9,12 @@ public class VideoGameDto extends AbstractItemDto {
   protected VideoGameDto(
       final String name,
       final String description,
-      final String publisher,
       final Integer availableCount,
       final Integer onLoan,
-      final String genre,
       final Date releaseDate,
       final boolean digitalCopy,
       final String ageRating) {
-    super(name, description, publisher, availableCount, onLoan, genre, releaseDate);
+    super(name, description, availableCount, onLoan, releaseDate);
     this.digitalCopy = digitalCopy;
     this.ageRating = ageRating;
   }

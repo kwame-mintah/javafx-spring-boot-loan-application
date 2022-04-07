@@ -10,26 +10,20 @@ import java.util.Date;
 abstract class AbstractItemDto {
   private String name;
   private String description;
-  private String publisher;
   private Integer availableCount;
   private Integer onLoan;
-  private String genre;
   private Date releaseDate;
 
   protected AbstractItemDto(
       final String name,
       final String description,
-      final String publisher,
       final Integer availableCount,
       final Integer onLoan,
-      final String genre,
       final Date releaseDate) {
     this.name = name;
     this.description = description;
-    this.publisher = publisher;
     this.availableCount = availableCount;
     this.onLoan = onLoan;
-    this.genre = genre;
     this.releaseDate = releaseDate;
   }
 
@@ -49,14 +43,6 @@ abstract class AbstractItemDto {
     this.description = description;
   }
 
-  public String getPublisher() {
-    return publisher;
-  }
-
-  public void setPublisher(final String publisher) {
-    this.publisher = publisher;
-  }
-
   public Integer getAvailableCount() {
     return availableCount;
   }
@@ -71,14 +57,6 @@ abstract class AbstractItemDto {
 
   public void setOnLoan(final Integer onLoan) {
     this.onLoan = onLoan;
-  }
-
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(final String genre) {
-    this.genre = genre;
   }
 
   public Date getReleaseDate() {
