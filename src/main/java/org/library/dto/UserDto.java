@@ -6,6 +6,7 @@ public class UserDto {
   private String firstname;
   private String lastname;
   private String email;
+  private String role;
   private Boolean enabled;
 
   public int getUserId() {
@@ -46,6 +47,14 @@ public class UserDto {
 
   public void setEmail(final String email) {
     this.email = email;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(final String role) {
+    this.role = role;
   }
 
   public Boolean getEnabled() {

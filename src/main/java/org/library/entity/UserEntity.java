@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "account", schema = "public")
+@Table(name = "user_accounts", schema = "public")
 public class UserEntity implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,8 @@ public class UserEntity implements Serializable {
   private String lastname;
   @Column(name = "email", nullable = false)
   private String email;
+  @Column(name = "role", nullable = false)
+  private String role;
   @Column(name = "enabled")
   private Boolean enabled;
 
@@ -80,7 +82,8 @@ public class UserEntity implements Serializable {
     return "UserId=" + userId +
             " username=" + username +
             " firstname=" + firstname +
-            "lastname=" + lastname +
+            " lastname=" + lastname +
+            " role=" + role +
             "email=" + email;
   }
 }
