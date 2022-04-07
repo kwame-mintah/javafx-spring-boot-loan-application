@@ -21,14 +21,10 @@ public class ItemEntity implements Serializable {
   private String name;
   @Column(name = "description", nullable = false)
   private String description;
-  @Column(name = "publisher", nullable = false)
-  private String publisher;
   @Column(name = "availableCount", nullable = false)
   private Integer availableCount;
   @Column(name = "onLoan", nullable = false)
   private Integer onLoan;
-  @Column(name = "genre")
-  private String genre;
   @Column(name = "releaseDate", nullable = false)
   private Date releaseDate;
 
@@ -56,14 +52,6 @@ public class ItemEntity implements Serializable {
     this.description = description;
   }
 
-  public String getPublisher() {
-    return publisher;
-  }
-
-  public void setPublisher(final String publisher) {
-    this.publisher = publisher;
-  }
-
   public Integer getAvailableCount() {
     return availableCount;
   }
@@ -80,14 +68,6 @@ public class ItemEntity implements Serializable {
     this.onLoan = onLoan;
   }
 
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(final String genre) {
-    this.genre = genre;
-  }
-
   public Date getReleaseDate() {
     return releaseDate;
   }
@@ -101,10 +81,8 @@ public class ItemEntity implements Serializable {
     return "id=" + id +
             " name=" + name +
             " description=" + description +
-            " publisher=" + publisher +
             " availableCount=" + availableCount +
             " onLoan=" + onLoan +
-            " genre=" + genre +
             " releaseDate=" + releaseDate;
   }
 }
