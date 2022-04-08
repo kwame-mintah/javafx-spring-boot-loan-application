@@ -33,7 +33,7 @@ public class JavaFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         logger.info("{} {}", welcomeController.getWelcomeMessage(), welcomeController);
-        Parent welcomePane = loadFxml("/welcome.fxml");
+        Parent welcomePane = loadFxml("/fxml/welcome.fxml");
         primaryStage.setScene(new Scene(welcomePane));
         primaryStage.show();
     }
@@ -44,7 +44,7 @@ public class JavaFXApplication extends Application {
         try {
             loader.load();
         } catch (IOException ex) {
-            logger.info("IOException while loading resource {}", view);
+            logger.info("IOException while loading resource {}, caused by {}", view, ex.getMessage());
         }
         return loader.getRoot();
     }
