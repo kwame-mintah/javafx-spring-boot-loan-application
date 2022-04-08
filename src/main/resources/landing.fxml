@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="71.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="71.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="268.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="111.0" layoutY="13.0" text="Library System Home page">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="61.0" text="Updates" />
+            <Label layoutX="283.0" layoutY="61.0" text="Whats new?" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="285.0" layoutY="84.0" prefHeight="139.0" prefWidth="270.0">
+              <content>
+                <AnchorPane maxHeight="143.0" minHeight="0.0" minWidth="0.0" prefHeight="143.0" prefWidth="266.0">
+                     <children>
+                        <Label prefHeight="143.0" prefWidth="265.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="84.0" prefHeight="139.0" prefWidth="270.0">
+               <content>
+                  <AnchorPane maxHeight="141.0" minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="270.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="253.0" text="- Finding Noody is ready to be collected." wrapText="true" />
+                        <Label layoutY="34.0" prefHeight="24.0" prefWidth="253.0" text="- Where is wally is overdue!" wrapText="true" />
+                        <Label layoutY="65.0" prefHeight="24.0" prefWidth="253.0" text="- Cars 4 is ready to be collected." wrapText="true" />
+                        <Label layoutY="98.0" prefHeight="24.0" prefWidth="253.0" text="- Hotwheels is ready to be collected." wrapText="true" />
+                        <Label layoutX="-2.0" layoutY="132.0" prefHeight="24.0" prefWidth="253.0" text="- Email verification required" wrapText="true" />
+                        <Label layoutX="1.0" layoutY="165.0" prefHeight="24.0" prefWidth="253.0" text="- Cars 4 is ready to be collected." wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane hbarPolicy="NEVER" layoutX="11.0" layoutY="252.0" prefHeight="75.0" prefWidth="538.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutY="-5.0" prefHeight="196.0" prefWidth="522.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <Label layoutX="10.0" layoutY="228.0" text="Library News" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="53.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button blendMode="HARD_LIGHT" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
+            <Button blendMode="HARD_LIGHT" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" text="Browse" />
+            <Button blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" text="Return Item" />
+            <Button blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" text="Request Item" />
+            <Button blendMode="HARD_LIGHT" layoutX="542.0" layoutY="14.0" mnemonicParsing="false" text="Logout" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
