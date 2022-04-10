@@ -1,17 +1,18 @@
 package org.library.entity;
 
+import org.library.dto.UserDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 
 @Entity
 @Table(name = "user_accounts", schema = "public")
-public class UserEntity implements Serializable {
+public class UserEntity extends UserDto {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "userId", nullable = false )
@@ -67,6 +68,14 @@ public class UserEntity implements Serializable {
 
   public void setEmail(final String email) {
     this.email = email;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(final String role) {
+    this.role = role;
   }
 
   public Boolean getEnabled() {
