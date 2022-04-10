@@ -1,6 +1,7 @@
 package org.library.service;
 
 import org.library.dto.UserDto;
+import org.library.exception.AccountDisabledException;
 import org.library.exception.AccountNotFoundException;
 import org.library.repository.UserRepository;
 import org.slf4j.Logger;
@@ -20,11 +21,13 @@ public class UserAccountService {
         try{
             userDto = userRepository.findByUsername(username);
             if (userDto.getEnabled().equals(false)){
-                logger.info("{} is currently disabled", userDto.getUsername());
+                logger.info("{} is currently disabled", username);
+                throw new AccountDisabledException();
             }
         } catch (NullPointerException nullPointerException){
             throw new AccountNotFoundException();
         }
+        logger.info("User account {} exists and account status is {}", username, userDto.getEnabled());
         return userDto;
     }
 }

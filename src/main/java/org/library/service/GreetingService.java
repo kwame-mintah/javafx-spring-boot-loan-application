@@ -1,5 +1,6 @@
 package org.library.service;
 
+import org.library.exception.AccountDisabledException;
 import org.library.exception.AccountNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class GreetingService {
     public boolean processLoginInfo(String username, String password){
         try{
             accountService.checkUserExists(username);
-        } catch (AccountNotFoundException accountNotFoundException){
+        } catch (AccountNotFoundException | AccountDisabledException exception ){
             return false;
         }
         return true;
