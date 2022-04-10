@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,10 +26,15 @@ public class WelcomeController implements Initializable {
 
     @FXML
     public Label welcomeLabel;
+    @FXML
     public Button login;
+    @FXML
     public TextField usernameField;
+    @FXML
     public PasswordField passwordField;
+    @FXML
     public Label usernameErrorMessage;
+    @FXML
     public Label passwordErrorMessage;
 
     @Autowired
@@ -55,7 +61,7 @@ public class WelcomeController implements Initializable {
      * @param actionEvent
      * @throws Exception
      */
-    public void processLogin(final ActionEvent actionEvent) throws Exception {
+    public void processLogin(final ActionEvent actionEvent) throws IOException {
         // Get the user input for the login form
         String username = usernameField.getText();
         String password = passwordField.getText();

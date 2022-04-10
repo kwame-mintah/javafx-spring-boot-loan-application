@@ -14,9 +14,6 @@ import java.util.Objects;
 @Component
 public class Navigation {
 
-    private Parent parent;
-    private Stage stage;
-
     /**
      * Load the FXML file and set the next scene to be shown,
      * will replace current window.
@@ -26,8 +23,8 @@ public class Navigation {
      * @throws IOException
      */
     public void loadNextScene(final ActionEvent actionEvent, final String fxml) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
