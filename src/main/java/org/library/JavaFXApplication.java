@@ -31,11 +31,11 @@ public class JavaFXApplication extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         logger.info("{} {}", welcomeController.getWelcomeMessage(), welcomeController);
-        Parent welcomePane = loadFxml("/fxml/welcome.fxml");
-        primaryStage.setScene(new Scene(welcomePane));
-        primaryStage.show();
+        Parent parent = loadFxml("/fxml/welcome.fxml");
+        stage.setScene(new Scene(parent));
+        stage.show();
     }
 
     private Parent loadFxml(String view) {
