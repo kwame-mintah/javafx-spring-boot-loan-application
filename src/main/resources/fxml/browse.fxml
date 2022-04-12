@@ -54,11 +54,11 @@
    <top>
       <AnchorPane prefHeight="53.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
-            <Button blendMode="HARD_LIGHT" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
-            <Button blendMode="HARD_LIGHT" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" text="Browse" />
+            <Button fx:id="landingScene" onAction="#goHome" blendMode="HARD_LIGHT" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
+            <Button fx:id="browseScene" onAction="#goBrowse" blendMode="HARD_LIGHT" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" text="Browse" />
             <Button blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" text="Return Item" />
             <Button blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" text="Request Item" />
-            <Button blendMode="HARD_LIGHT" layoutX="542.0" layoutY="14.0" mnemonicParsing="false" text="Logout" />
+            <Button fx:id="logout" onAction="#goToWelcome" blendMode="HARD_LIGHT" layoutX="542.0" layoutY="14.0" mnemonicParsing="false" text="Logout" />
          </children>
       </AnchorPane>
    </top>

@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.library.helper.Navigation;
-import org.library.service.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -22,15 +20,15 @@ public class LandingController implements Initializable {
     @FXML
     public Button logout;
 
-    @Autowired
-    private GreetingService greetingService;
-
-    private Navigation navigation;
+    private final Navigation navigation;
 
     private static final String WELCOME_FXML_PATH = "/fxml/welcome.fxml";
     private static final String LANDING_FXML_PATH = "/fxml/landing.fxml";
     private static final String BROWSE_FXML_PATH = "/fxml/browse.fxml";
 
+    public LandingController() {
+        this.navigation = new Navigation();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
