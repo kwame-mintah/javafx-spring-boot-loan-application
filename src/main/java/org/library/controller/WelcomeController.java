@@ -65,16 +65,22 @@ public class WelcomeController implements Initializable {
         // Get the user input for the login form
         String username = usernameField.getText();
         String password = passwordField.getText();
+        // Ensure that the text is cleared if the user completes a field
+        // And clicks the login button again.
+        usernameErrorMessage.setText("");
+        passwordErrorMessage.setText("");
 
         if (username.isEmpty()){
             logger.debug("Username field is empty: {}", username);
             usernameErrorMessage.setText("Please enter a username to continue");
             usernameErrorMessage.setTextFill(Color.color(1, 0, 0));
+            return;
         }
         if (password.isEmpty()){
             logger.debug("Password field is empty: {}", password);
             passwordErrorMessage.setText("Please enter a password to continue");
             passwordErrorMessage.setTextFill(Color.color(1, 0, 0));
+            return;
         }
 
         if (greetingService.processLoginInfo(usernameField.getText(), passwordField.getText())){
