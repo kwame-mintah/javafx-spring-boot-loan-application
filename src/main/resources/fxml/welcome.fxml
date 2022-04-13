@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.library.controller.WelcomeController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="71.0" BorderPane.alignment="CENTER" />
@@ -26,7 +27,7 @@
             <Button fx:id="login" layoutX="344.0" layoutY="237.0" mnemonicParsing="false" onAction="#processLogin" prefHeight="26.0" prefWidth="72.0" text="Login" />
             <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Sign-up" />
             <Button layoutX="219.0" layoutY="236.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Forgot password" />
-            <Label fx:id="welcomeLabel" layoutX="140.0" layoutY="290.0" prefHeight="26.0" prefWidth="252.0" textAlignment="CENTER" />
+            <Label fx:id="welcomeLabel" layoutX="188.0" layoutY="287.0" prefHeight="26.0" prefWidth="249.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </center>

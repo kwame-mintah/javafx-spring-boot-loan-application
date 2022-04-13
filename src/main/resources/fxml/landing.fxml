@@ -64,8 +64,8 @@
          <children>
             <Button fx:id="landingScene" onAction="#goHome" blendMode="HARD_LIGHT" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
             <Button fx:id="browseScene" onAction="#goBrowse" blendMode="HARD_LIGHT" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" text="Browse" />
-            <Button blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" text="Return Item" />
-            <Button blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" text="Request Item" />
+            <Button fx:id="returnItemScene" onAction="#goReturnItem" blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" text="Return Item" />
+            <Button fx:id="requestItemScene" onAction="#goRequestItem" blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" text="Request Item" />
             <Button fx:id="logout" onAction="#goToWelcome" blendMode="HARD_LIGHT" layoutX="542.0" layoutY="14.0" mnemonicParsing="false" text="Logout" />
          </children>
       </AnchorPane>

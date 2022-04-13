@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import org.library.helper.Navigation;
 import org.library.service.GreetingService;
 import org.slf4j.Logger;
@@ -21,9 +22,6 @@ import java.util.ResourceBundle;
 
 @Component
 public class WelcomeController implements Initializable {
-
-    private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
-
     @FXML
     public Label welcomeLabel;
     @FXML
@@ -42,6 +40,8 @@ public class WelcomeController implements Initializable {
 
     private Navigation navigation;
 
+    private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+
     public WelcomeController(final Navigation navigation, final GreetingService greetingService) {
         this.navigation = navigation;
         this.greetingService = greetingService;
@@ -50,6 +50,7 @@ public class WelcomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         welcomeLabel.setText(greetingService.getWelcomeGreeting());
+        welcomeLabel.setTextAlignment(TextAlignment.CENTER);
     }
     
     public String getWelcomeMessage() {

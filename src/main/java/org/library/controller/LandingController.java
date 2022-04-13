@@ -19,11 +19,17 @@ public class LandingController implements Initializable {
     public Button browseScene;
     @FXML
     public Button logout;
+    @FXML
+    public Button returnItemScene;
+    @FXML
+    public Button requestItemScene;
 
     private final Navigation navigation;
 
     private static final String WELCOME_FXML_PATH = "/fxml/welcome.fxml";
     private static final String LANDING_FXML_PATH = "/fxml/landing.fxml";
+    private static final String RETURN_FXML_PATH = "/fxml/request.fxml";
+    private static final String REQUEST_FXML_PATH = "/fxml/return.fxml";
     private static final String BROWSE_FXML_PATH = "/fxml/browse.fxml";
 
     public LandingController() {
@@ -41,6 +47,14 @@ public class LandingController implements Initializable {
 
     public void goBrowse(final ActionEvent actionEvent) throws IOException {
         navigation.loadNextScene(actionEvent, BROWSE_FXML_PATH);
+    }
+
+    public void goReturnItem(final ActionEvent actionEvent) throws IOException {
+        navigation.loadNextScene(actionEvent, RETURN_FXML_PATH);
+    }
+
+    public void goRequestItem(final ActionEvent actionEvent) throws IOException {
+        navigation.loadNextScene(actionEvent, REQUEST_FXML_PATH);
     }
 
     public void goToWelcome(final ActionEvent actionEvent) throws IOException {
