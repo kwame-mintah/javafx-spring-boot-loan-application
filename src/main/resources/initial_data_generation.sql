@@ -5,7 +5,7 @@
 -- Dumped from database version 14.2 (Debian 14.2-1.pgdg110+1)
 -- Dumped by pg_dump version 14.2
 
--- Started on 2022-04-09 13:37:36 BST
+-- Started on 2022-04-25 23:51:21 BST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3326 (class 1262 OID 16384)
+-- TOC entry 3338 (class 1262 OID 16384)
 -- Name: library-system-db; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -46,7 +46,45 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 210 (class 1259 OID 16386)
+-- TOC entry 214 (class 1259 OID 16404)
+-- Name: books; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.books (
+    id bigint NOT NULL,
+    author character varying(255),
+    isbn character varying(255)
+);
+
+
+ALTER TABLE public.books OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 16403)
+-- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.books_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.books_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3339 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: books_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.books_id_seq OWNED BY public.books.id;
+
+
+--
+-- TOC entry 209 (class 1259 OID 16385)
 -- Name: items; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -63,7 +101,7 @@ CREATE TABLE public.items (
 ALTER TABLE public.items OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 16385)
+-- TOC entry 210 (class 1259 OID 16390)
 -- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -79,8 +117,8 @@ CREATE SEQUENCE public.items_id_seq
 ALTER TABLE public.items_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3327 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 3340 (class 0 OID 0)
+-- Dependencies: 210
 -- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -88,7 +126,7 @@ ALTER SEQUENCE public.items_id_seq OWNED BY public.items.id;
 
 
 --
--- TOC entry 212 (class 1259 OID 16395)
+-- TOC entry 211 (class 1259 OID 16391)
 -- Name: user_accounts; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -106,7 +144,7 @@ CREATE TABLE public.user_accounts (
 ALTER TABLE public.user_accounts OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 16394)
+-- TOC entry 212 (class 1259 OID 16396)
 -- Name: user_accounts_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -122,8 +160,8 @@ CREATE SEQUENCE public.user_accounts_user_id_seq
 ALTER TABLE public.user_accounts_user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3328 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3341 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: user_accounts_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -131,7 +169,15 @@ ALTER SEQUENCE public.user_accounts_user_id_seq OWNED BY public.user_accounts.us
 
 
 --
--- TOC entry 3172 (class 2604 OID 16389)
+-- TOC entry 3179 (class 2604 OID 16407)
+-- Name: books id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.books ALTER COLUMN id SET DEFAULT nextval('public.books_id_seq'::regclass);
+
+
+--
+-- TOC entry 3177 (class 2604 OID 16397)
 -- Name: items id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -139,7 +185,7 @@ ALTER TABLE ONLY public.items ALTER COLUMN id SET DEFAULT nextval('public.items_
 
 
 --
--- TOC entry 3173 (class 2604 OID 16398)
+-- TOC entry 3178 (class 2604 OID 16398)
 -- Name: user_accounts user_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -147,8 +193,17 @@ ALTER TABLE ONLY public.user_accounts ALTER COLUMN user_id SET DEFAULT nextval('
 
 
 --
--- TOC entry 3318 (class 0 OID 16386)
--- Dependencies: 210
+-- TOC entry 3332 (class 0 OID 16404)
+-- Dependencies: 214
+-- Data for Name: books; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.books (id, author, isbn) VALUES (1, 'Man of Action Studios', '9781911461227');
+
+
+--
+-- TOC entry 3327 (class 0 OID 16385)
+-- Dependencies: 209
 -- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -156,8 +211,8 @@ INSERT INTO public.items (id, available_count, description, name, on_loan, relea
 
 
 --
--- TOC entry 3320 (class 0 OID 16395)
--- Dependencies: 212
+-- TOC entry 3329 (class 0 OID 16391)
+-- Dependencies: 211
 -- Data for Name: user_accounts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -167,8 +222,17 @@ INSERT INTO public.user_accounts (user_id, email, enabled, firstname, lastname, 
 
 
 --
--- TOC entry 3329 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 3342 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: books_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.books_id_seq', 1, false);
+
+
+--
+-- TOC entry 3343 (class 0 OID 0)
+-- Dependencies: 210
 -- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -176,8 +240,8 @@ SELECT pg_catalog.setval('public.items_id_seq', 1, false);
 
 
 --
--- TOC entry 3330 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3344 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: user_accounts_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -185,7 +249,16 @@ SELECT pg_catalog.setval('public.user_accounts_user_id_seq', 1, false);
 
 
 --
--- TOC entry 3175 (class 2606 OID 16393)
+-- TOC entry 3185 (class 2606 OID 16411)
+-- Name: books books_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.books
+    ADD CONSTRAINT books_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3181 (class 2606 OID 16400)
 -- Name: items items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -194,7 +267,16 @@ ALTER TABLE ONLY public.items
 
 
 --
--- TOC entry 3177 (class 2606 OID 16402)
+-- TOC entry 3187 (class 2606 OID 16413)
+-- Name: books uk_kibbepcitr0a3cpk3rfr7nihn; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.books
+    ADD CONSTRAINT uk_kibbepcitr0a3cpk3rfr7nihn UNIQUE (isbn);
+
+
+--
+-- TOC entry 3183 (class 2606 OID 16402)
 -- Name: user_accounts user_accounts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -202,7 +284,7 @@ ALTER TABLE ONLY public.user_accounts
     ADD CONSTRAINT user_accounts_pkey PRIMARY KEY (user_id);
 
 
--- Completed on 2022-04-09 13:37:36 BST
+-- Completed on 2022-04-25 23:51:21 BST
 
 --
 -- PostgreSQL database dump complete
