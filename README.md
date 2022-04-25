@@ -62,7 +62,7 @@ You can either use environment variables to change the values or update the file
 
 __Unable to start application due to: 'JavaFX runtime components are missing'__
 
-If you get this error, double check you have provided the correct path to your javafx-sdk files in your VM arguments
+If you get this error, double check you have provided the correct path to your [javafx-sdk](https://gluonhq.com/products/javafx/) files in your VM arguments
 for 'JavaFXApplication' configuration in IntelliJ.
 
 ## Contribute
