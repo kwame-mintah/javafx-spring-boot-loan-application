@@ -39,7 +39,7 @@
             </ScrollPane>
             <ImageView blendMode="SOFT_LIGHT" fitHeight="259.0" fitWidth="216.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true">
                <image>
-                  <Image url="@../images/big-library-in-amsterdam-netherlands.jpeg" />
+                  <Image url="@../images/place-holder-library-image.jpeg" />
                </image>
             </ImageView>
             <Button layoutX="248.0" layoutY="265.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="89.0" text="Request Item" />
