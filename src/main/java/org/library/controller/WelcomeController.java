@@ -3,6 +3,7 @@ package org.library.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -36,9 +37,9 @@ public class WelcomeController implements Initializable {
     public Label passwordErrorMessage;
 
     @Autowired
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
-    private Navigation navigation;
+    private final Navigation navigation;
 
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
@@ -58,9 +59,11 @@ public class WelcomeController implements Initializable {
     }
 
     /**
-     * Check if the user credentials provided are correct
-     * @param actionEvent
-     * @throws Exception
+     * Check if the user credentials provided are correct, will inform the user
+     * if username or password has not been completed.
+     *
+     * @param actionEvent action performed on the scene
+     * @throws IOException exception thrown when there is an issue the users account.
      */
     public void processLogin(final ActionEvent actionEvent) throws IOException {
         // Get the user input for the login form
@@ -86,6 +89,12 @@ public class WelcomeController implements Initializable {
 
         if (greetingService.processLoginInfo(usernameField.getText(), passwordField.getText())){
             navigation.loadNextScene(actionEvent, "/fxml/landing.fxml");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Unable to successfully authenticate user");
+            alert.setHeaderText("Unable to retrieve account details for " + usernameField.getText());
+            alert.setContentText("If this issue persists, please contact a System Administrator.");
+            alert.showAndWait();
         }
     }
 }
