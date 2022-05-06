@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.entity.ItemEntity;
@@ -55,6 +56,16 @@ public class BrowseController implements Initializable {
         this.navigation = navigation;
     }
 
+    /**
+     * On scene load fetch all items from the library database, this will
+     * be displayed back to the user to be able to select from.
+     *
+     * Change listener is attached to the itemTypes, if a user selects one the results
+     * displayed will only show items of that type.
+     *
+     * @param location {@link URL}
+     * @param resources {@link ResourceBundle}
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<ItemEntity> allItems = itemService.getAllItems();
@@ -68,6 +79,14 @@ public class BrowseController implements Initializable {
             itemNames.getItems().addAll(placeHolderItemsNames);
             itemTypes.getItems().addAll(placeHolderItems);
         }
+
+        itemTypes.getSelectionModel().selectedItemProperty().addListener((arg0, arg1, arg2) -> {
+            List<ItemEntity> allItemsByType = itemService.findByItemType(itemTypes.getSelectionModel().getSelectedItem());
+            itemNames.getItems().clear();
+            for (ItemEntity allItem : allItemsByType) {
+                itemNames.getItems().add(allItem.getName());
+            }
+        });
     }
 
     public void goHome(final ActionEvent actionEvent) throws IOException {
@@ -88,5 +107,15 @@ public class BrowseController implements Initializable {
 
     public void goToWelcome(final ActionEvent actionEvent) throws IOException {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
+    }
+
+    /**
+     * On mouse select event on any of the items returned, will make a call to
+     * display the item in more detail, such as image, description, availability.
+     * @param mouseEvent {@link MouseEvent}
+     */
+    public void goToInspectItem(final MouseEvent mouseEvent) {
+        List<ItemEntity> selectedItem = itemService.findByItemName(itemNames.getSelectionModel().getSelectedItem());
+        navigation.inspectItemScene(mouseEvent, InspectController.class, selectedItem);
     }
 }
