@@ -2,7 +2,6 @@ package org.library.controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,12 +35,9 @@ public class RequestController implements Initializable {
 
     private final Navigation navigation;
 
-    private final FxWeaver fxWeaver;
-
     private static final Logger logger = LoggerFactory.getLogger(RequestController.class);
 
     public RequestController(final FxWeaver fxWeaver, final Navigation navigation) {
-        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
     }
 

@@ -44,12 +44,9 @@ public class WelcomeController implements Initializable {
 
     private final Navigation navigation;
 
-    private final FxWeaver fxWeaver;
-
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
     public WelcomeController(final FxWeaver fxWeaver, final Navigation navigation, final GreetingService greetingService) {
-        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
         this.greetingService = greetingService;
     }

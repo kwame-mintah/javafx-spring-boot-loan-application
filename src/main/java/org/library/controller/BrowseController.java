@@ -44,15 +44,12 @@ public class BrowseController implements Initializable {
 
     private final Navigation navigation;
 
-    private final FxWeaver fxWeaver;
-
     private static final Logger logger = LoggerFactory.getLogger(BrowseController.class);
 
     String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
     String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
 
     public BrowseController(final FxWeaver fxWeaver, final Navigation navigation) {
-        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
     }
 

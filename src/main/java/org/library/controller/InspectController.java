@@ -50,10 +50,7 @@ public class InspectController implements Initializable {
 
     private final Navigation navigation;
 
-    private final FxWeaver fxWeaver;
-
     public InspectController(final FxWeaver fxWeaver, final Navigation navigation) {
-        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
     }
 

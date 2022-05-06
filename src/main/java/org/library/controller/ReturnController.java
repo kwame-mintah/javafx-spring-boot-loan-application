@@ -29,10 +29,7 @@ public class ReturnController implements Initializable {
 
     private final Navigation navigation;
 
-    private final FxWeaver fxWeaver;
-
     public ReturnController(final FxWeaver fxWeaver, final Navigation navigation) {
-        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
     }
 
