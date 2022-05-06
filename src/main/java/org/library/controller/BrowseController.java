@@ -7,13 +7,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.library.entity.ItemEntity;
 import org.library.helper.Navigation;
 import org.library.service.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
@@ -41,6 +45,8 @@ public class BrowseController implements Initializable {
 
     private final FxWeaver fxWeaver;
 
+    private static final Logger logger = LoggerFactory.getLogger(BrowseController.class);
+
     String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
     String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
 
@@ -51,8 +57,17 @@ public class BrowseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        itemTypes.getItems().addAll(placeHolderItems);
-        itemNames.getItems().addAll(placeHolderItemsNames);
+        List<ItemEntity> allItems = itemService.getAllItems();
+        if (!allItems.isEmpty()) {
+            for (ItemEntity allItem : allItems) {
+                itemNames.getItems().add(allItem.getName());
+                itemTypes.getItems().add(allItem.getType());
+            }
+        } else {
+            logger.warn("Unable to get items as allItems is empty, displaying placeholder values");
+            itemNames.getItems().addAll(placeHolderItemsNames);
+            itemTypes.getItems().addAll(placeHolderItems);
+        }
     }
 
     public void goHome(final ActionEvent actionEvent) throws IOException {

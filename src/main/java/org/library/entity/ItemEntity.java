@@ -21,6 +21,8 @@ public class ItemEntity implements Serializable {
   private String name;
   @Column(name = "description", nullable = false)
   private String description;
+  @Column(name = "type", nullable = false)
+  private String type;
   @Column(name = "availableCount", nullable = false)
   private Integer availableCount;
   @Column(name = "onLoan", nullable = false)
@@ -50,6 +52,14 @@ public class ItemEntity implements Serializable {
 
   public void setDescription(final String description) {
     this.description = description;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(final String type) {
+    this.type = type;
   }
 
   public Integer getAvailableCount() {
