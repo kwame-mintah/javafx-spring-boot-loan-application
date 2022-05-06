@@ -10,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
 import org.library.service.GreetingService;
 import org.slf4j.Logger;
@@ -22,6 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
+@FxmlView("/fxml/welcome.fxml")
 public class WelcomeController implements Initializable {
     @FXML
     public Label welcomeLabel;
@@ -41,9 +44,12 @@ public class WelcomeController implements Initializable {
 
     private final Navigation navigation;
 
+    private final FxWeaver fxWeaver;
+
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
-    public WelcomeController(final Navigation navigation, final GreetingService greetingService) {
+    public WelcomeController(final FxWeaver fxWeaver, final Navigation navigation, final GreetingService greetingService) {
+        this.fxWeaver = fxWeaver;
         this.navigation = navigation;
         this.greetingService = greetingService;
     }
@@ -52,10 +58,6 @@ public class WelcomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         welcomeLabel.setText(greetingService.getWelcomeGreeting());
         welcomeLabel.setTextAlignment(TextAlignment.CENTER);
-    }
-    
-    public String getWelcomeMessage() {
-        return greetingService.getWelcomeGreeting();
     }
 
     /**
@@ -88,7 +90,7 @@ public class WelcomeController implements Initializable {
         }
 
         if (greetingService.processLoginInfo(usernameField.getText(), passwordField.getText())){
-            navigation.loadNextScene(actionEvent, "/fxml/landing.fxml");
+            navigation.loadNextScene(actionEvent, LandingController.class);
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Unable to successfully authenticate user");

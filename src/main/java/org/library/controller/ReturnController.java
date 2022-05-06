@@ -4,12 +4,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
+@FxmlView("/fxml/return.fxml")
 public class ReturnController implements Initializable {
     @FXML
     public Button landingScene;
@@ -24,14 +29,11 @@ public class ReturnController implements Initializable {
 
     private final Navigation navigation;
 
-    private static final String WELCOME_FXML_PATH = "/fxml/welcome.fxml";
-    private static final String LANDING_FXML_PATH = "/fxml/landing.fxml";
-    private static final String RETURN_FXML_PATH = "/fxml/request.fxml";
-    private static final String REQUEST_FXML_PATH = "/fxml/return.fxml";
-    private static final String BROWSE_FXML_PATH = "/fxml/browse.fxml";
+    private final FxWeaver fxWeaver;
 
-    public ReturnController(){
-        this.navigation = new Navigation();
+    public ReturnController(final FxWeaver fxWeaver, final Navigation navigation) {
+        this.fxWeaver = fxWeaver;
+        this.navigation = navigation;
     }
 
     @Override
@@ -40,22 +42,22 @@ public class ReturnController implements Initializable {
     }
 
     public void goHome(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, LANDING_FXML_PATH);
+        navigation.loadNextScene(actionEvent, LandingController.class);
     }
 
     public void goBrowse(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, BROWSE_FXML_PATH);
+        navigation.loadNextScene(actionEvent, BrowseController.class);
     }
 
     public void goReturnItem(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, RETURN_FXML_PATH);
+        navigation.loadNextScene(actionEvent, ReturnController.class);
     }
 
     public void goRequestItem(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, REQUEST_FXML_PATH);
+        navigation.loadNextScene(actionEvent, RequestController.class);
     }
 
     public void goToWelcome(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, WELCOME_FXML_PATH);
+        navigation.loadNextScene(actionEvent, RequestController.class);
     }
 }
