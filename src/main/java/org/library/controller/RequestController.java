@@ -47,7 +47,10 @@ public class RequestController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //
+        requestChoices.setItems(FXCollections.observableArrayList(
+                "Toys", "Books", "Video Game", "Dvd", "Other"
+        ));
+        logger.debug("Displaying {} choices to select from", requestChoices);
     }
 
     public void goHome(final ActionEvent actionEvent) throws IOException {
@@ -68,12 +71,5 @@ public class RequestController implements Initializable {
 
     public void goToWelcome(final ActionEvent actionEvent) throws IOException {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
-    }
-
-    public void avaliablechoices(final Event mouseEvent) {
-        logger.debug("User action on this field was {}", mouseEvent.getEventType());
-        requestChoices.setItems(FXCollections.observableArrayList(
-                "Toys", "Books", "Video Game", "Dvd"
-        ));
     }
 }

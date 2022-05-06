@@ -29,7 +29,7 @@
             <Label layoutX="21.0" layoutY="96.0" text="Item name" />
             <TextField layoutX="103.0" layoutY="92.0" prefHeight="26.0" prefWidth="403.0" promptText="What is the name of the item? e.g. Sea Monkeys Playset" />
             <Label layoutX="21.0" layoutY="136.0" text="What type of item is it?" />
-            <ChoiceBox fx:id="requestChoices" onShown="#avaliablechoices" layoutX="171.0" layoutY="131.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="requestChoices" layoutX="171.0" layoutY="131.0" prefWidth="150.0" />
             <Label layoutX="21.0" layoutY="176.0" text="Why should the item be in the Library?" />
             <TextArea layoutX="21.0" layoutY="204.0" prefHeight="74.0" prefWidth="493.0" wrapText="true" />
             <ButtonBar layoutX="314.0" layoutY="287.0" prefHeight="40.0" prefWidth="200.0">
