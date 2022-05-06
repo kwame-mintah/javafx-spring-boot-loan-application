@@ -23,6 +23,8 @@ public class ItemEntity implements Serializable {
   private String description;
   @Column(name = "type", nullable = false)
   private String type;
+  @Column(name = "image")
+  private String image;
   @Column(name = "availableCount", nullable = false)
   private Integer availableCount;
   @Column(name = "onLoan", nullable = false)
@@ -60,6 +62,14 @@ public class ItemEntity implements Serializable {
 
   public void setType(final String type) {
     this.type = type;
+  }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(final String image) {
+    this.image = image;
   }
 
   public Integer getAvailableCount() {

@@ -5,7 +5,7 @@
 -- Dumped from database version 14.2 (Debian 14.2-1.pgdg110+1)
 -- Dumped by pg_dump version 14.2
 
--- Started on 2022-05-06 03:54:39 BST
+-- Started on 2022-05-06 20:51:16 BST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -95,7 +95,8 @@ CREATE TABLE public.items (
     name character varying(255) NOT NULL,
     on_loan integer NOT NULL,
     release_date timestamp without time zone NOT NULL,
-    type character varying(255)
+    type character varying(255),
+    image character varying(255)
 );
 
 
@@ -208,10 +209,10 @@ INSERT INTO public.books (id, author, isbn) VALUES (1, 'Man of Action Studios', 
 -- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type) VALUES (1, 10, 'The Omnimatrix better known as the Omnitrix was a watch-like device that attached to Ben Tennyson wrist', 'Ben 10 classic omnitrix', 2, '2003-03-03 00:00:00', 'Toy');
-INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type) VALUES (2, 5, 'Jonathan Xavier Johnny Test is the main protagonist of the series of the same name', 'Johnny Test Comic', 1, '2004-03-04 00:00:00', 'Book');
-INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type) VALUES (3, 5, 'Power Rangers Macintosh game', 'Saban Power Rangers Zeo Versus The Machine Empire', 0, '2006-04-03 00:00:00', 'Video Game');
-INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type) VALUES (4, 2, 'Sleeping Beauty is the 1959 full length animated feature production from Walt Disney Studios', 'Sleeping Beauty', 0, '2000-02-02 00:00:00', 'Dvd');
+INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type, image) VALUES (2, 5, 'Jonathan Xavier Johnny Test is the main protagonist of the series of the same name', 'Johnny Test Comic', 1, '2004-03-04 00:00:00', 'Book', 'johnny_test_image_1.jpeg');
+INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type, image) VALUES (3, 5, 'Power Rangers Macintosh game', 'Saban Power Rangers Zeo Versus The Machine Empire', 0, '2006-04-03 00:00:00', 'Video Game', 'power_ranger_image_1.jpeg');
+INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type, image) VALUES (4, 2, 'Sleeping Beauty is the 1959 full length animated feature production from Walt Disney Studios', 'Sleeping Beauty', 0, '2000-02-02 00:00:00', 'Dvd', 'sleep_beauty_image_1.jpeg');
+INSERT INTO public.items (id, available_count, description, name, on_loan, release_date, type, image) VALUES (1, 10, 'The Omnimatrix better known as the Omnitrix was a watch-like device that attached to Ben Tennyson wrist', 'Ben 10 classic omnitrix', 2, '2003-03-03 00:00:00', 'Toy', 'ben_tennyson_image_1.jpeg');
 
 
 --
@@ -288,7 +289,7 @@ ALTER TABLE ONLY public.user_accounts
     ADD CONSTRAINT user_accounts_pkey PRIMARY KEY (user_id);
 
 
--- Completed on 2022-05-06 03:54:40 BST
+-- Completed on 2022-05-06 20:51:16 BST
 
 --
 -- PostgreSQL database dump complete
