@@ -46,8 +46,8 @@ public class BrowseController implements Initializable {
 
     private static final Logger logger = LoggerFactory.getLogger(BrowseController.class);
 
-    String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
-    String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
+    final String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
+    final String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
 
     public BrowseController(final FxWeaver fxWeaver, final Navigation navigation) {
         this.navigation = navigation;
@@ -86,23 +86,23 @@ public class BrowseController implements Initializable {
         });
     }
 
-    public void goHome(final ActionEvent actionEvent) throws IOException {
+    public void goHome(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, LandingController.class);
     }
 
-    public void goBrowse(final ActionEvent actionEvent) throws IOException {
+    public void goBrowse(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, BrowseController.class);
     }
 
-    public void goReturnItem(final ActionEvent actionEvent) throws IOException {
+    public void goReturnItem(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, ReturnController.class);
     }
 
-    public void goRequestItem(final ActionEvent actionEvent) throws IOException {
+    public void goRequestItem(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, RequestController.class);
     }
 
-    public void goToWelcome(final ActionEvent actionEvent) throws IOException {
+    public void goToWelcome(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
     }
 

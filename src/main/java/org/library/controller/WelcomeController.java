@@ -62,9 +62,8 @@ public class WelcomeController implements Initializable {
      * if username or password has not been completed.
      *
      * @param actionEvent action performed on the scene
-     * @throws IOException exception thrown when there is an issue the users account.
      */
-    public void processLogin(final ActionEvent actionEvent) throws IOException {
+    public void processLogin(final ActionEvent actionEvent) {
         // Get the user input for the login form
         String username = usernameField.getText();
         String password = passwordField.getText();

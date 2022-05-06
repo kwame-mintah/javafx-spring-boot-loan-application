@@ -49,23 +49,23 @@ public class RequestController implements Initializable {
         logger.debug("Displaying {} choices to select from", requestChoices);
     }
 
-    public void goHome(final ActionEvent actionEvent) throws IOException {
+    public void goHome(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, LandingController.class);
     }
 
-    public void goBrowse(final ActionEvent actionEvent) throws IOException {
+    public void goBrowse(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, BrowseController.class);
     }
 
-    public void goReturnItem(final ActionEvent actionEvent) throws IOException {
+    public void goReturnItem(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, ReturnController.class);
     }
 
-    public void goRequestItem(final ActionEvent actionEvent) throws IOException {
+    public void goRequestItem(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, RequestController.class);
     }
 
-    public void goToWelcome(final ActionEvent actionEvent) throws IOException {
+    public void goToWelcome(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
     }
 }
