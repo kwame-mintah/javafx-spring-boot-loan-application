@@ -1,51 +1,42 @@
 package org.library;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
 import org.library.controller.WelcomeController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 
-import java.io.IOException;
-
-
-@SpringBootApplication
 public class JavaFXApplication extends Application {
     private static final Logger logger = LoggerFactory.getLogger(JavaFXApplication.class);
-
-    @Autowired
-    private WelcomeController welcomeController;
-    public static void main(String[] args) {
-        Application.launch();
-    }
+    private ConfigurableApplicationContext applicationContext;
 
     @Override
     public void init() {
-        SpringApplication.run(getClass()).getAutowireCapableBeanFactory().autowireBean(this);
+        String[] args = getParameters().getRaw().toArray(new String[0]);
+        this.applicationContext = new SpringApplicationBuilder()
+                .sources(LibrarySystemApplication.class)
+                .run(args);
     }
 
     @Override
     public void start(Stage stage) {
-        logger.info("{} {}", welcomeController.getWelcomeMessage(), welcomeController);
-        Parent parent = loadFxml("/fxml/welcome.fxml");
-        stage.setScene(new Scene(parent));
+        FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
+        Parent root = fxWeaver.loadView(WelcomeController.class);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
+        logger.info("Loaded {}", WelcomeController.class);
     }
 
-    private Parent loadFxml(String view) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(view));
-        loader.setControllerFactory(param -> welcomeController);
-        try {
-            loader.load();
-        } catch (IOException ex) {
-            logger.info("IOException while loading resource {}, caused by {}", view, ex.getMessage());
-        }
-        return loader.getRoot();
+    @Override
+    public void stop() {
+        this.applicationContext.close();
+        Platform.exit();
     }
 }
