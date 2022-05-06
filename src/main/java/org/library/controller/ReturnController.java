@@ -58,6 +58,6 @@ public class ReturnController implements Initializable {
     }
 
     public void goToWelcome(final ActionEvent actionEvent) throws IOException {
-        navigation.loadNextScene(actionEvent, RequestController.class);
+        navigation.loadNextScene(actionEvent, WelcomeController.class);
     }
 }
