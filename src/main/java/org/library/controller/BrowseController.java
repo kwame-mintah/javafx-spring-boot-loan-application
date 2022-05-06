@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.control.ListView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
@@ -19,7 +19,6 @@ import java.util.ResourceBundle;
 @Component
 @FxmlView("/fxml/browse.fxml")
 public class BrowseController implements Initializable {
-    private Stage stage;
     @FXML
     public Button landingScene;
     @FXML
@@ -30,6 +29,10 @@ public class BrowseController implements Initializable {
     public Button returnItemScene;
     @FXML
     public Button requestItemScene;
+    @FXML
+    public ListView<String> itemTypes;
+    @FXML
+    public ListView<String> itemNames;
 
     @Autowired
     ItemService itemService;
@@ -38,6 +41,9 @@ public class BrowseController implements Initializable {
 
     private final FxWeaver fxWeaver;
 
+    String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
+    String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
+
     public BrowseController(final FxWeaver fxWeaver, final Navigation navigation) {
         this.fxWeaver = fxWeaver;
         this.navigation = navigation;
@@ -45,7 +51,8 @@ public class BrowseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //
+        itemTypes.getItems().addAll(placeHolderItems);
+        itemNames.getItems().addAll(placeHolderItemsNames);
     }
 
     public void goHome(final ActionEvent actionEvent) throws IOException {
