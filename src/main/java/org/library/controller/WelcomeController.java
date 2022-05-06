@@ -10,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
 import org.library.service.GreetingService;
@@ -45,7 +44,7 @@ public class WelcomeController implements Initializable {
 
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
-    public WelcomeController(final FxWeaver fxWeaver, final Navigation navigation, final GreetingService greetingService) {
+    public WelcomeController(final Navigation navigation, final GreetingService greetingService) {
         this.navigation = navigation;
         this.greetingService = greetingService;
     }

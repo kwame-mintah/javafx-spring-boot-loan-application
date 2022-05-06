@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.entity.ItemEntity;
 import org.library.helper.Navigation;
@@ -48,7 +47,7 @@ public class BrowseController implements Initializable {
     final String[] placeHolderItems = {"Type 1", "Type 2", "Type 3"};
     final String[] placeHolderItemsNames = {"Cool Item 1", "Cool Item 2", "Cool Item 3"};
 
-    public BrowseController(final FxWeaver fxWeaver, final Navigation navigation) {
+    public BrowseController(final Navigation navigation) {
         this.navigation = navigation;
     }
 

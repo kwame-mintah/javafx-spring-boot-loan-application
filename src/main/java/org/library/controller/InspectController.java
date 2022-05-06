@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.entity.ItemEntity;
 import org.library.helper.Navigation;
@@ -49,7 +48,7 @@ public class InspectController implements Initializable {
 
     private final Navigation navigation;
 
-    public InspectController(final FxWeaver fxWeaver, final Navigation navigation) {
+    public InspectController(final Navigation navigation) {
         this.navigation = navigation;
     }
 

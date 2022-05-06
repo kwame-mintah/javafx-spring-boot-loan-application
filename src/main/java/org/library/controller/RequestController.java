@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
 import org.slf4j.Logger;
@@ -36,7 +35,7 @@ public class RequestController implements Initializable {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestController.class);
 
-    public RequestController(final FxWeaver fxWeaver, final Navigation navigation) {
+    public RequestController(final Navigation navigation) {
         this.navigation = navigation;
     }
 

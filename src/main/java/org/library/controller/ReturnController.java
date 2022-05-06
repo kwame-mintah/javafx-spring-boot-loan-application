@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
 import org.springframework.stereotype.Component;
@@ -28,7 +27,7 @@ public class ReturnController implements Initializable {
 
     private final Navigation navigation;
 
-    public ReturnController(final FxWeaver fxWeaver, final Navigation navigation) {
+    public ReturnController(final Navigation navigation) {
         this.navigation = navigation;
     }
 
