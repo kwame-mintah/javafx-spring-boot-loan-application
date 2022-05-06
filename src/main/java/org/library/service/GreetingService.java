@@ -11,8 +11,10 @@ public class GreetingService {
     @Autowired
     UserAccountService accountService;
 
+    static final String WELCOME_AND_HAVE_A_NICE_DAY = "Welcome and have a nice day!";
+
     public String getWelcomeGreeting() {
-        return "Welcome and have a nice day!";
+        return WELCOME_AND_HAVE_A_NICE_DAY;
     }
 
     public boolean processLoginInfo(String username, String password){
