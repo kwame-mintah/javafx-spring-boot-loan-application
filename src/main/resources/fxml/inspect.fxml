@@ -44,8 +44,7 @@
                   <Image url="@../images/placeholder_library_image_1.jpeg" />
                </image>
             </ImageView>
-            <Button fx:id="requestItemButton" layoutX="248.0" layoutY="265.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="107.0" text="Request Item" />
-            <Button fx:id="returnItemButton" layoutX="432.0" layoutY="263.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Return Item" />
+            <Button fx:id="requestItemButton" layoutX="248.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#reduceAvailabilityCount" prefHeight="50.0" prefWidth="276.0" text="Request Item" />
          </children>
       </AnchorPane>
    </center>

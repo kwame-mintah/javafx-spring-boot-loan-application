@@ -3,14 +3,18 @@ package org.library.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.library.dto.ItemDto;
 import org.library.entity.ItemEntity;
 import org.library.helper.Navigation;
+import org.library.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -34,8 +38,6 @@ public class InspectController implements Initializable {
     @FXML
     public Button requestItemButton;
     @FXML
-    public Button returnItemButton;
-    @FXML
     public Label itemName;
     @FXML
     public Label itemDescription;
@@ -45,6 +47,9 @@ public class InspectController implements Initializable {
     public Label itemReleaseDate;
     @FXML
     public ImageView itemImage;
+
+    @Autowired
+    ItemService itemService;
 
     private final Navigation navigation;
 
@@ -86,13 +91,34 @@ public class InspectController implements Initializable {
      */
     @FXML
     public void setItemInformation(final List<ItemEntity> selectedItem) {
-        itemName.setText(selectedItem.get(0).getName());
-        itemDescription.setText(selectedItem.get(0).getDescription());
-        itemAvailableCount.setText(String.valueOf(selectedItem.get(0).getAvailableCount()));
-        itemReleaseDate.setText(String.valueOf(selectedItem.get(0).getReleaseDate()));
+        ItemDto itemDto = selectedItem.get(0);
+        itemName.setText(itemDto.getName());
+        itemDescription.setText(itemDto.getDescription());
+        itemAvailableCount.setText(String.valueOf(itemDto.getAvailableCount()));
+        itemReleaseDate.setText(String.valueOf(itemDto.getReleaseDate()));
         if (!selectedItem.get(0).getImage().isEmpty() || selectedItem.get(0).getImage() != null) {
-            itemImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + selectedItem.get(0).getImage()))));
+            itemImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + itemDto.getImage()))));
             itemImage.setBlendMode(BlendMode.SRC_OVER);
+        }
+    }
+
+    /**
+     * Change the items' availability count, when a user decides to request the item.
+     * Makes a call to the database to update the availability count.
+     */
+    public void reduceAvailabilityCount() {
+        if (itemAvailableCount.getText().equals("0")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Item unavailable");
+            alert.setContentText("Item is not available to be borrowed");
+            alert.showAndWait();
+            requestItemButton.setDisable(true);
+            requestItemButton.setText("Item is not available to be borrowed");
+        } else {
+            itemService.deductAvailableCount(itemName.getText());
+            requestItemButton.setDisable(true);
+            requestItemButton.setText("Successfully added to your account");
+            itemAvailableCount.setText(String.valueOf(itemService.findByItemName(itemName.getText()).get(0).getAvailableCount()));
         }
     }
 }
