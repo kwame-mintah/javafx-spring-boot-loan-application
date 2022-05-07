@@ -30,58 +30,72 @@ public class UserEntity extends UserDto {
   @Column(name = "enabled")
   private Boolean enabled;
 
+  @Override
   public int getUserId() {
     return userId;
   }
 
+  @Override
   public void setUserId(final int userId) {
     this.userId = userId;
   }
 
+  @Override
   public String getUsername() {
     return username;
   }
 
+  @Override
   public void setUsername(final String username) {
     this.username = username;
   }
 
+  @Override
   public String getFirstname() {
     return firstname;
   }
 
+  @Override
   public void setFirstname(final String firstname) {
     this.firstname = firstname;
   }
 
+  @Override
   public String getLastname() {
     return lastname;
   }
 
+  @Override
   public void setLastname(final String lastname) {
     this.lastname = lastname;
   }
 
+  @Override
   public String getEmail() {
     return email;
   }
 
+  @Override
   public void setEmail(final String email) {
     this.email = email;
   }
 
+  @Override
   public String getRole() {
     return role;
   }
 
+  @Override
   public void setRole(final String role) {
     this.role = role;
   }
 
+  @Override
   public Boolean getEnabled() {
     return enabled;
   }
 
+  @Override
   public void setEnabled(final Boolean enabled) {
     this.enabled = enabled;
   }
