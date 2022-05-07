@@ -9,12 +9,14 @@ public class BookDto extends AbstractItemDto {
   protected BookDto(
       final String name,
       final String description,
+      final String type,
+      final String image,
       final Integer availableCount,
       final Integer onLoan,
       final String author,
       final Date releaseDate,
       final String isbn) {
-    super(name, description, availableCount, onLoan, releaseDate);
+    super(name, description, type, image, availableCount, onLoan, releaseDate);
     this.author = author;
     this.isbn = isbn;
   }

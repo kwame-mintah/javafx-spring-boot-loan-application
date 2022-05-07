@@ -9,12 +9,14 @@ public class DvdDto extends AbstractItemDto {
   protected DvdDto(
       final String name,
       final String description,
+      final String type,
+      final String image,
       final Integer onLoan,
       final Integer availableCount,
       final Date releaseDate,
       final String actors,
       final String studio) {
-    super(name, description, availableCount, onLoan, releaseDate);
+    super(name, description, type, image, availableCount, onLoan, releaseDate);
     this.actors = actors;
     this.studio = studio;
   }

@@ -2,14 +2,11 @@ package org.library.dto;
 
 import java.util.Date;
 
-/**
- * Data transfer object (DTO), formerly known as value objects or VO, is a design pattern used to
- * transfer data between software application subsystems. DTOs are often used in conjunction with
- * data access objects to retrieve data from a database.
- */
 abstract class AbstractItemDto {
   private String name;
   private String description;
+  private String type;
+  private String image;
   private Integer availableCount;
   private Integer onLoan;
   private Date releaseDate;
@@ -17,14 +14,22 @@ abstract class AbstractItemDto {
   protected AbstractItemDto(
       final String name,
       final String description,
+      final String type,
+      final String image,
       final Integer availableCount,
       final Integer onLoan,
       final Date releaseDate) {
     this.name = name;
     this.description = description;
+    this.type = type;
+    this.image = image;
     this.availableCount = availableCount;
     this.onLoan = onLoan;
     this.releaseDate = releaseDate;
+  }
+
+  protected AbstractItemDto() {
+     super();
   }
 
   public String getName() {
@@ -41,6 +46,22 @@ abstract class AbstractItemDto {
 
   public void setDescription(final String description) {
     this.description = description;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(final String image) {
+    this.image = image;
   }
 
   public Integer getAvailableCount() {
