@@ -25,26 +25,27 @@
                </font>
             </Label>
             <Label layoutX="208.0" layoutY="51.0" text="Mange your items loaned" />
-            <TabPane layoutY="70.0" prefHeight="270.0" prefWidth="552.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="borrowedTabPane" layoutY="70.0" prefHeight="230.0" prefWidth="552.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab closable="false" text="Item Title">
+                <Tab fx:id="returnItemTab" closable="false" text="Item Title">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="173.0" prefWidth="355.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="511.0">
                            <children>
-                              <Label layoutX="9.0" layoutY="27.0" text="Item Taken Placeholder" />
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="9.0" layoutY="62.0" pickOnBounds="true" smooth="false">
+                              <Label fx:id="itemName" layoutX="9.0" layoutY="27.0" text="Item Taken Placeholder" />
+                              <ImageView fx:id="itemImage" blendMode="SOFT_LIGHT" fitHeight="130.0" fitWidth="180.0" layoutX="9.0" layoutY="62.0" pickOnBounds="true" smooth="false">
                                  <image>
                                     <Image url="@../images/placeholder_library_image_1.jpeg" />
                                  </image>
                               </ImageView>
-                              <Button defaultButton="true" layoutX="412.0" layoutY="186.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Return Item" />
-                              <Button layoutX="263.0" layoutY="186.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" text="Request Extension" />
+                              <Label fx:id="itemDescription" alignment="TOP_LEFT" layoutX="253.0" layoutY="62.0" prefHeight="46.0" prefWidth="280.0" text="Item description placeholder" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
               </tabs>
             </TabPane>
+            <Button fx:id="requestItemExtension" layoutX="244.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#requestExtension" prefHeight="26.0" prefWidth="131.0" text="Request Extension" />
+            <Button fx:id="returnItem" defaultButton="true" layoutX="429.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#removeItemFromAccount" prefHeight="18.0" prefWidth="118.0" text="Return Item" />
          </children>
       </AnchorPane>
    </center>
@@ -53,8 +54,8 @@
          <children>
             <Button fx:id="landingScene" blendMode="HARD_LIGHT" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
             <Button fx:id="browseScene" blendMode="HARD_LIGHT" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBrowse" text="Browse" />
-            <Button fx:id="returnItemScene" onAction="#goReturnItem" blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" text="Return Item" />
-            <Button fx:id="requestItemScene" onAction="#goRequestItem" blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" text="Request Item" />
+            <Button fx:id="returnItemScene" blendMode="HARD_LIGHT" layoutX="276.0" layoutY="14.0" mnemonicParsing="false" onAction="#goReturnItem" text="Return Item" />
+            <Button fx:id="requestItemScene" blendMode="HARD_LIGHT" layoutX="400.0" layoutY="14.0" mnemonicParsing="false" onAction="#goRequestItem" text="Request Item" />
             <Button fx:id="logout" blendMode="HARD_LIGHT" layoutX="542.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToWelcome" text="Logout" />
          </children>
       </AnchorPane>

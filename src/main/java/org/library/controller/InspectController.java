@@ -46,6 +46,8 @@ public class InspectController implements Initializable {
     @FXML
     public Label itemReleaseDate;
     @FXML
+    public Label itemId;
+    @FXML
     public ImageView itemImage;
 
     @Autowired
@@ -96,6 +98,7 @@ public class InspectController implements Initializable {
         itemDescription.setText(itemDto.getDescription());
         itemAvailableCount.setText(String.valueOf(itemDto.getAvailableCount()));
         itemReleaseDate.setText(String.valueOf(itemDto.getReleaseDate()));
+        itemId.setText(String.valueOf(selectedItem.get(0).getId()));
         if (!selectedItem.get(0).getImage().isEmpty() || selectedItem.get(0).getImage() != null) {
             itemImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + itemDto.getImage()))));
             itemImage.setBlendMode(BlendMode.SRC_OVER);
@@ -115,7 +118,7 @@ public class InspectController implements Initializable {
             requestItemButton.setDisable(true);
             requestItemButton.setText("Item is not available to be borrowed");
         } else {
-            itemService.deductAvailableCount(itemName.getText());
+            itemService.deductAvailableCount(itemName.getText(), Integer.parseInt(itemId.getText()));
             requestItemButton.setDisable(true);
             requestItemButton.setText("Successfully added to your account");
             itemAvailableCount.setText(String.valueOf(itemService.findByItemName(itemName.getText()).get(0).getAvailableCount()));

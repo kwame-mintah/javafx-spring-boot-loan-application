@@ -45,6 +45,7 @@
                </image>
             </ImageView>
             <Button fx:id="requestItemButton" layoutX="248.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#reduceAvailabilityCount" prefHeight="50.0" prefWidth="276.0" text="Request Item" />
+            <Label fx:id="itemId" blendMode="SOFT_LIGHT" disable="true" layoutX="189.0" layoutY="307.0" />
          </children>
       </AnchorPane>
    </center>

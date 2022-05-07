@@ -22,6 +22,10 @@ public interface ItemRepository extends JpaRepository<ItemEntity, Integer>{
 
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE items SET available_count = items.available_count + ABS(1), on_loan = items.on_loan - ABS(1)" +
-            " WHERE NAME=?1", nativeQuery = true)
+            " WHERE NAME=:itemName", nativeQuery = true)
     void returnItem(@Param("itemName") final String itemName);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "INSERT INTO public.borrowed (item_id) VALUES(:itemId)", nativeQuery = true)
+    void insertIntoBorrowed(@Param("itemId") final Integer itemId);
 }
