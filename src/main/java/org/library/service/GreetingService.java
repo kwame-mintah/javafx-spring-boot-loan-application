@@ -17,7 +17,7 @@ public class GreetingService {
         return WELCOME_AND_HAVE_A_NICE_DAY;
     }
 
-    public boolean processLoginInfo(String username, String password){
+    public boolean processLoginInfo(final String username){
         try{
             accountService.checkUserExists(username);
         } catch (AccountNotFoundException | AccountDisabledException exception ){

@@ -23,8 +23,8 @@
             <Label layoutX="138.0" layoutY="140.0" text="Password" />
             <PasswordField fx:id="passwordField" layoutX="139.0" layoutY="161.0" prefHeight="26.0" prefWidth="259.0" />
             <Label fx:id="passwordErrorMessage" layoutX="140.0" layoutY="195.0" prefHeight="27.0" prefWidth="254.0" />
-            <Button fx:id="login" layoutX="344.0" layoutY="237.0" mnemonicParsing="false" onAction="#processLogin" prefHeight="26.0" prefWidth="72.0" text="Login" />
-            <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Sign-up" />
+            <Button fx:id="login" defaultButton="true" layoutX="344.0" layoutY="237.0" mnemonicParsing="false" onAction="#processLogin" prefHeight="26.0" prefWidth="72.0" text="Login" />
+            <Button disable="true" layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Sign-up" />
             <Button disable="true" layoutX="219.0" layoutY="236.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Forgot password" />
             <Label fx:id="welcomeLabel" layoutX="188.0" layoutY="287.0" prefHeight="26.0" prefWidth="249.0" textAlignment="CENTER" />
          </children>

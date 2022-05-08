@@ -16,7 +16,7 @@ public class UserAccountService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserDto checkUserExists(String username){
+    public void checkUserExists(String username){
         UserDto userDto;
         try{
             userDto = userRepository.findByUsername(username);
@@ -28,6 +28,5 @@ public class UserAccountService {
             throw new AccountNotFoundException();
         }
         logger.info("User account {} exists and account status is {}", username, userDto.getEnabled());
-        return userDto;
     }
 }

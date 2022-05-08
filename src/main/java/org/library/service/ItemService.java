@@ -38,7 +38,7 @@ public class ItemService {
         } catch (NullPointerException exception) {
             logger.error(ERROR_LOGGER_MESSAGE);
         }
-        logger.info("Found {} entries, when retrieving all items from database", (long) items.size());
+        logger.info("Found {} entries, when retrieving all items from items table", (long) items.size());
         return items;
     }
 
@@ -54,7 +54,7 @@ public class ItemService {
         } catch (NullPointerException exception) {
             logger.error(ERROR_LOGGER_MESSAGE);
         }
-        logger.info("Found {} entries, when retrieving all items from database", (long) items.size());
+        logger.info("Found {} entries, when retrieving all items from borrowed table", (long) items.size());
         return items;
     }
 

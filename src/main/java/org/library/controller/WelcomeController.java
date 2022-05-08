@@ -83,7 +83,7 @@ public class WelcomeController implements Initializable {
             return;
         }
 
-        if (greetingService.processLoginInfo(usernameField.getText(), passwordField.getText())){
+        if (greetingService.processLoginInfo(usernameField.getText())){
             navigation.loadNextScene(actionEvent, LandingController.class);
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
