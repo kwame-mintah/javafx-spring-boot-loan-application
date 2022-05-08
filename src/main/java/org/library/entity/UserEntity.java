@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "user_accounts", schema = "public")
+@Table(name = "users", schema = "public")
 public class UserEntity extends UserDto {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
