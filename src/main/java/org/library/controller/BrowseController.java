@@ -3,8 +3,10 @@ package org.library.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.entity.ItemEntity;
@@ -36,6 +38,8 @@ public class BrowseController implements Initializable {
     public ListView<String> itemTypes;
     @FXML
     public ListView<String> itemNames;
+    @FXML
+    public TextField searchInputField;
 
     @Autowired
     ItemService itemService;
@@ -112,5 +116,24 @@ public class BrowseController implements Initializable {
     public void goToInspectItem(final MouseEvent mouseEvent) {
         List<ItemEntity> selectedItem = itemService.findByItemName(itemNames.getSelectionModel().getSelectedItem());
         navigation.inspectItemScene(mouseEvent, InspectController.class, selectedItem);
+    }
+
+    /**
+     * Query the database for items with the same name the user has provided,
+     * if no results are returned an alert is shown to the user.
+     */
+    public void searchByItemName() {
+        List<ItemEntity> allItems = itemService.findByItemName(searchInputField.getText());
+        if (!allItems.isEmpty()){
+            itemNames.getItems().clear();
+            for (ItemEntity allItem : allItems) {
+                itemNames.getItems().add(allItem.getName());
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No results found");
+            alert.setContentText(String.format("No item with the name %s was found.", searchInputField.getText()));
+            alert.showAndWait();
+        }
     }
 }

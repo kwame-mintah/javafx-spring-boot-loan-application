@@ -87,7 +87,7 @@ public class ItemService {
         } catch (NullPointerException exception) {
             logger.error(ERROR_LOGGER_MESSAGE);
         }
-        logger.info("Found item with name {}", items.get(0).getName());
+        logger.info("Found {} entries with name {}", items.size(), itemName);
         return items;
     }
 

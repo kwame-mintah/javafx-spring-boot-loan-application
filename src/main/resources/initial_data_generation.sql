@@ -18,7 +18,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE "library-system-db";
 --
 -- TOC entry 3344 (class 1262 OID 16384)
 -- Name: library-system-db; Type: DATABASE; Schema: -; Owner: postgres
@@ -242,8 +241,8 @@ INSERT INTO public.items (id, available_count, description, name, on_loan, relea
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.users (user_id, email, enabled, firstname, lastname, role, username) VALUES (1, 'disabled@library', false, 'Dexter', 'Lab', 'user', 'dexter.lab');
-INSERT INTO public.users (user_id, email, enabled, firstname, lastname, role, username) VALUES (2, 'admin@library.com', true, 'Ben', 'Tennyson', 'user', 'ben.tennyson');
+INSERT INTO public.users (user_id, email, enabled, firstname, lastname, role, username) VALUES (1, 'disabled@library', false, 'Dexter', 'Lab', 'administrator', 'dexter.lab');
+INSERT INTO public.users (user_id, email, enabled, firstname, lastname, role, username) VALUES (2, 'user@library.com', true, 'Ben', 'Tennyson', 'standard', 'ben.tennyson');
 
 
 --

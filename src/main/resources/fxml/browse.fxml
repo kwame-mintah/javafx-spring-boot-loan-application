@@ -43,8 +43,8 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <TextField layoutX="199.0" layoutY="84.0" prefHeight="26.0" prefWidth="288.0" promptText="Search for an item..." />
-            <Button layoutX="495.0" layoutY="85.0" mnemonicParsing="false" text="Search" />
+            <TextField fx:id="searchInputField" layoutX="199.0" layoutY="84.0" prefHeight="26.0" prefWidth="288.0" promptText="Search for an item by name..." />
+            <Button layoutX="495.0" layoutY="85.0" mnemonicParsing="false" onAction="#searchByItemName" text="Search" />
          </children>
       </AnchorPane>
    </center>
