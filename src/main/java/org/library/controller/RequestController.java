@@ -4,12 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.library.helper.Navigation;
+import org.library.service.RequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -30,6 +35,15 @@ public class RequestController implements Initializable {
     public Button requestItemScene;
     @FXML
     public ChoiceBox<String> requestChoices;
+    @FXML
+    public TextField requestItemName;
+    @FXML
+    public TextArea requestReason;
+    @FXML
+    public Button submitRequest;
+
+    @Autowired
+    RequestService requestService;
 
     private final Navigation navigation;
 
@@ -42,7 +56,7 @@ public class RequestController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         requestChoices.setItems(FXCollections.observableArrayList(
-                "Toys", "Books", "Video Game", "Dvd", "Other"
+                "Toy", "Book", "Video Game", "Dvd", "Other"
         ));
         logger.debug("Displaying {} choices to select from", requestChoices);
     }
@@ -65,5 +79,28 @@ public class RequestController implements Initializable {
 
     public void goToWelcome(final ActionEvent actionEvent) {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
+    }
+
+    public void sendRequest() {
+        final String requestedItemName = requestItemName.getText();
+        final String requestedItemType = requestChoices.getSelectionModel().getSelectedItem();
+        final String requestedItemReason = requestReason.getText();
+
+        try {
+            requestService.insertRequest(requestedItemName, requestedItemType, requestedItemReason);
+            logger.debug("Clearing request fields, as entry to requested database was successful");
+            requestItemName.clear();
+            requestChoices.getSelectionModel().clearSelection();
+            requestReason.clear();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Successfully logged item request");
+            alert.setContentText(String.format("Your request for %s to be added, has been successfully logged.", requestedItemName));
+            alert.showAndWait();
+        } catch (Exception exception) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Failed to log request");
+            alert.setContentText(String.format("Your request for %s to be added, failed to be logged. Please try again later.", requestedItemName));
+            alert.showAndWait();
+        }
     }
 }
