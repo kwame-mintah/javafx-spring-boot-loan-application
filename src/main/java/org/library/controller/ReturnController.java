@@ -88,10 +88,10 @@ public class ReturnController implements Initializable {
         if (itemsBorrowedInfo.isPresent()){
             FlowPane pane = new FlowPane();
             ItemDto itemDto = itemsBorrowedInfo.get();
-            ImageView image = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + itemDto.getImage()))));
+            ImageView image = new ImageView(new Image(Objects.requireNonNull(getClass()
+                    .getResourceAsStream("/images/" + itemDto.getImage())),
+                    300, 300, false, false));
             Tab tab = new Tab(itemDto.getName());
-            image.setFitHeight(300);
-            image.setFitWidth(300);
             pane.getChildren().addAll(image);
             tab.setContent(pane);
             borrowedTabPane.getTabs().add(tab);
