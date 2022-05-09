@@ -23,28 +23,30 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" layoutX="248.0" layoutY="70.0" prefHeight="181.0" prefWidth="278.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="248.0" layoutY="70.0" prefHeight="192.0" prefWidth="278.0">
                <content>
-                  <AnchorPane maxHeight="251.0" minHeight="0.0" minWidth="0.0" prefHeight="251.0" prefWidth="264.0">
+                  <AnchorPane maxHeight="251.0" minHeight="0.0" minWidth="0.0" prefHeight="249.0" prefWidth="264.0">
                      <children>
                         <Label layoutX="3.0" prefHeight="24.0" prefWidth="253.0" text="Item name" underline="true" wrapText="true" />
                         <Label fx:id="itemName" layoutX="3.0" layoutY="27.0" prefHeight="24.0" prefWidth="253.0" text="Item name placeholder" wrapText="true" />
                         <Label layoutX="3.0" layoutY="59.0" prefHeight="24.0" prefWidth="253.0" text="Item description" underline="true" wrapText="true" />
                         <Label fx:id="itemDescription" alignment="TOP_LEFT" layoutX="3.0" layoutY="87.0" prefHeight="41.0" prefWidth="253.0" text="Item description placeholder" wrapText="true" />
-                        <Label layoutX="3.0" layoutY="126.0" prefHeight="24.0" prefWidth="253.0" text="Item availability count" underline="true" wrapText="true" />
-                        <Label fx:id="itemAvailableCount" layoutX="5.0" layoutY="145.0" prefHeight="24.0" prefWidth="253.0" text="0" wrapText="true" />
-                        <Label layoutX="5.0" layoutY="169.0" prefHeight="24.0" prefWidth="253.0" text="Item release date" underline="true" wrapText="true" />
-                        <Label fx:id="itemReleaseDate" layoutX="6.0" layoutY="190.0" prefHeight="24.0" prefWidth="253.0" text="00-00-0000" wrapText="true" />
+                        <Label layoutX="4.0" layoutY="118.0" prefHeight="24.0" prefWidth="253.0" text="Item availability count" underline="true" wrapText="true" />
+                        <Label fx:id="itemAvailableCount" layoutX="6.0" layoutY="137.0" prefHeight="24.0" prefWidth="253.0" text="0" wrapText="true" />
+                        <Label layoutX="4.0" layoutY="160.0" prefHeight="24.0" prefWidth="253.0" text="On loan" underline="true" wrapText="true" />
+                        <Label fx:id="onLoanCount" layoutX="6.0" layoutY="179.0" prefHeight="24.0" prefWidth="253.0" text="0" wrapText="true" />
+                        <Label layoutX="5.0" layoutY="202.0" prefHeight="24.0" prefWidth="253.0" text="Item release date" underline="true" wrapText="true" />
+                        <Label fx:id="itemReleaseDate" layoutX="6.0" layoutY="223.0" prefHeight="24.0" prefWidth="253.0" text="00-00-0000" wrapText="true" />
                      </children>
                   </AnchorPane>
                </content>
             </ScrollPane>
+            <Button fx:id="requestItemButton" layoutX="250.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#reduceAvailabilityCount" prefHeight="50.0" prefWidth="276.0" text="Request Item" />
             <ImageView fx:id="itemImage" blendMode="SOFT_LIGHT" fitHeight="259.0" fitWidth="216.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/placeholder_library_image_1.jpeg" />
                </image>
             </ImageView>
-            <Button fx:id="requestItemButton" layoutX="248.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#reduceAvailabilityCount" prefHeight="50.0" prefWidth="276.0" text="Request Item" />
             <Label fx:id="itemId" blendMode="SOFT_LIGHT" disable="true" layoutX="189.0" layoutY="307.0" />
          </children>
       </AnchorPane>

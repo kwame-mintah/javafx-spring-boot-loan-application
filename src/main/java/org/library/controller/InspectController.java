@@ -44,6 +44,8 @@ public class InspectController implements Initializable {
     @FXML
     public Label itemAvailableCount;
     @FXML
+    public Label onLoanCount;
+    @FXML
     public Label itemReleaseDate;
     @FXML
     public Label itemId;
@@ -98,6 +100,7 @@ public class InspectController implements Initializable {
         itemDescription.setText(itemDto.getDescription());
         itemAvailableCount.setText(String.valueOf(itemDto.getAvailableCount()));
         itemReleaseDate.setText(String.valueOf(itemDto.getReleaseDate()));
+        onLoanCount.setText(String.valueOf(itemDto.getOnLoan()));
         itemId.setText(String.valueOf(selectedItem.get(0).getId()));
         if (!selectedItem.get(0).getImage().isEmpty() || selectedItem.get(0).getImage() != null) {
             itemImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + itemDto.getImage()))));
@@ -121,7 +124,9 @@ public class InspectController implements Initializable {
             itemService.deductAvailableCount(itemName.getText(), Integer.parseInt(itemId.getText()));
             requestItemButton.setDisable(true);
             requestItemButton.setText("Successfully added to your account");
-            itemAvailableCount.setText(String.valueOf(itemService.findByItemName(itemName.getText()).get(0).getAvailableCount()));
+            ItemDto itemDto = itemService.findByItemName(itemName.getText()).get(0);
+            itemAvailableCount.setText(String.valueOf(itemDto.getAvailableCount()));
+            onLoanCount.setText(String.valueOf(itemDto.getOnLoan()));
         }
     }
 }
