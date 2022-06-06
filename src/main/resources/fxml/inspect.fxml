@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.library.controller.InspectController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="71.0" BorderPane.alignment="CENTER" />
@@ -48,6 +49,7 @@
                </image>
             </ImageView>
             <Label fx:id="itemId" blendMode="SOFT_LIGHT" disable="true" layoutX="189.0" layoutY="307.0" />
+            <Button fx:id="printToFile" layoutX="153.0" layoutY="301.0" mnemonicParsing="false" onAction="#printItemToFile" opacity="0.5" text="Print to file" />
          </children>
       </AnchorPane>
    </center>

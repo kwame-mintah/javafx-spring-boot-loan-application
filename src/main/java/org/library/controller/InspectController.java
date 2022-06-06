@@ -17,6 +17,8 @@ import org.library.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -37,6 +39,8 @@ public class InspectController implements Initializable {
     public Button requestItemScene;
     @FXML
     public Button requestItemButton;
+    @FXML
+    public Button printToFile;
     @FXML
     public Label itemName;
     @FXML
@@ -127,6 +131,25 @@ public class InspectController implements Initializable {
             ItemDto itemDto = itemService.findByItemName(itemName.getText()).get(0);
             itemAvailableCount.setText(String.valueOf(itemDto.getAvailableCount()));
             onLoanCount.setText(String.valueOf(itemDto.getOnLoan()));
+        }
+    }
+
+    /**
+     * Print the selected item information to a file for the user to later use.
+     */
+    public void printItemToFile() {
+        final String fileName = itemName.getText().replace(" ", "-") + ".txt";
+        try(PrintStream printStream = new PrintStream(fileName)){
+            printStream.printf("Item name: %s \n" + "Item description: %s \n" + "Item release date: %s \n",
+                    itemName.getText(), itemDescription.getText(), itemReleaseDate.getText());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successfully output information to file");
+            alert.setHeaderText("File created");
+            alert.setContentText(String.format("Saved information to file %s", fileName));
+            alert.showAndWait();
+            printToFile.setDisable(true);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
