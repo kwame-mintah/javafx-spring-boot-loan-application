@@ -49,7 +49,7 @@
                </image>
             </ImageView>
             <Label fx:id="itemId" blendMode="SOFT_LIGHT" disable="true" layoutX="189.0" layoutY="307.0" />
-            <Button fx:id="printToFile" layoutX="153.0" layoutY="301.0" mnemonicParsing="false" onAction="#printItemToFile" opacity="0.5" text="Print to file" />
+            <Button fx:id="printToFile" layoutX="155.0" layoutY="301.0" mnemonicParsing="false" onAction="#printItemToFile" opacity="0.5" text="Print to file" />
          </children>
       </AnchorPane>
    </center>

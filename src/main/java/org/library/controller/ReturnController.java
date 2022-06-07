@@ -63,6 +63,13 @@ public class ReturnController implements Initializable {
         this.navigation = navigation;
     }
 
+    /**
+     * On scene load, display all items that has been borrowed and their images.
+     * If no items have been borrowed, display placeholder items and disable buttons.
+     *
+     * @param location {@link URL}
+     * @param resources {@link ResourceBundle}
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<BorrowedEntity> allItems = itemService.getAllBorrowedItems();
@@ -84,6 +91,12 @@ public class ReturnController implements Initializable {
         }
     }
 
+    /**
+     * Create a new tab pane for items that a user currently has borrowed,
+     * display the items' information, such as the image, description etc.
+     *
+     * @param itemsBorrowedInfo {@link ItemEntity}
+     */
     private void createNewTabForItems(final Optional<ItemEntity> itemsBorrowedInfo) {
         if (itemsBorrowedInfo.isPresent()){
             FlowPane pane = new FlowPane();
@@ -124,6 +137,9 @@ public class ReturnController implements Initializable {
         selectedItem.setDisable(true);
     }
 
+    /**
+     * Display an alert when a user requests an extension that is currently on their account.
+     */
     public void requestExtension() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Extension Requested");

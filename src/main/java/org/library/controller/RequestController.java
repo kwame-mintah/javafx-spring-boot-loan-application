@@ -53,6 +53,13 @@ public class RequestController implements Initializable {
         this.navigation = navigation;
     }
 
+    /**
+     * On load, display different item types that the user can select from, that can be used
+     * when requesting for an item to be added to the system.
+     *
+     * @param location {@link URL}
+     * @param resources {@link ResourceBundle}
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         requestChoices.setItems(FXCollections.observableArrayList(
@@ -81,6 +88,10 @@ public class RequestController implements Initializable {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
     }
 
+    /**
+     * Get text that has been input by the user and create a new database entry in,
+     * the requested table of the application.
+     */
     public void sendRequest() {
         final String requestedItemName = requestItemName.getText();
         final String requestedItemType = requestChoices.getSelectionModel().getSelectedItem();
