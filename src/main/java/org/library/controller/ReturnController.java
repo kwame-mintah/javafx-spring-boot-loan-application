@@ -131,10 +131,20 @@ public class ReturnController implements Initializable {
         navigation.loadNextScene(actionEvent, WelcomeController.class);
     }
 
+    /**
+     * Get the currently selected tab and remove the item from the users' account.
+     */
     public void removeItemFromAccount() {
         Tab selectedItem = borrowedTabPane.getSelectionModel().getSelectedItem();
+        int selectedTab = borrowedTabPane.getSelectionModel().getSelectedIndex();
         itemService.returnItem(selectedItem.getText());
         selectedItem.setDisable(true);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Item Returned");
+        alert.setContentText(String.format("Successfully returned %s",
+                selectedItem.getText()));
+        alert.showAndWait();
+        borrowedTabPane.getTabs().remove(selectedTab);
     }
 
     /**
