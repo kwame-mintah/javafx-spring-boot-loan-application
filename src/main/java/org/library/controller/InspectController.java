@@ -140,8 +140,10 @@ public class InspectController implements Initializable {
     public void printItemToFile() {
         final String fileName = itemName.getText().replace(" ", "-") + ".txt";
         try(PrintStream printStream = new PrintStream(fileName)){
-            printStream.printf("Item name: %s \n" + "Item description: %s \n" + "Item release date: %s \n",
-                    itemName.getText(), itemDescription.getText(), itemReleaseDate.getText());
+            printStream.printf("Item name: %s \n" + "Item description: %s \n" + "Item available count date: %s \n"
+                            + "Item loan count: %s \n" + "Item release date: %s \n",
+                    itemName.getText(), itemDescription.getText(), itemAvailableCount.getText(), onLoanCount.getText(),
+                    itemReleaseDate.getText());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successfully output information to file");
             alert.setHeaderText("File created");
