@@ -16,7 +16,7 @@ public class UserAccountService {
     @Autowired
     private UserRepository userRepository;
 
-    public void checkUserExists(String username){
+    public void checkUserExists(String username) throws AccountNotFoundException, AccountDisabledException {
         UserDto userDto;
         try{
             userDto = userRepository.findByUsername(username);
