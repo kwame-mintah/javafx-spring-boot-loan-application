@@ -32,6 +32,8 @@ replay_pid*
 # Ignore target directory file and IntellJ
 target
 .idea
+*.iml
 
 .DS_Store
 *.txt
+javafx-sdk-18/
